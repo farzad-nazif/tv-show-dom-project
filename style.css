@@ -1,3 +1,47 @@
-#root {
-  color: red;
+body {
+  padding: 0;
+  margin: 2rem;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(87, 170, 39);
+}
+#license{
+  justify-self: center;
+  align-self: center;
+}
+#episodeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+}
+.episode {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-color: rgb(229, 228, 228);
+  border-style: outset;
+}
+.episode:hover {
+  background-color: rgb(200, 207, 195);
+  cursor: pointer;
+}
+.episodeImg {
+  width: 90%;
+  padding-top: 1.1rem;
+}
+.episodeTitle {
+  padding: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  border-color: black;
+  border-style: double;
+  background-color: rgb(161, 201, 138);
 }
