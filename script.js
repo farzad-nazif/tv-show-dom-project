@@ -1,8 +1,27 @@
 const allEpisodes = getAllEpisodes();
 // Setting up
 function setup() {
+  let episodeSelector = document.getElementById("episodeSelector");
   allEpisodes.forEach((episode) => {
     makePageForEpisodes(episode);
+    // Creating options using JS, so HTMl wont get too, making big 73options elements
+    let option = document.createElement("option");
+    option.setAttribute("value", episode.id);
+    let episodeName = document.createElement("span");
+    episodeName.innerText = episode.name;
+    let episodeNumber = document.createElement("span");
+    let currentSeason = episode.season;
+    let currentEpisode = episode.number;
+    if (currentSeason <= 9 && currentEpisode > 9) {
+      episodeNumber.innerText = ` - S0${currentSeason}E${currentEpisode}`;
+    } else if (currentSeason > 9 && currentEpisode <= 9) {
+      episodeNumber.innerText = ` - S${currentSeason}E0${currentEpisode}`;
+    } else if (currentEpisode <= 9 && currentEpisode <= 9) {
+      episodeNumber.innerText = ` - S0${currentSeason}E0${currentEpisode}`;
+    }
+    option.appendChild(episodeName);
+    option.appendChild(episodeNumber);
+    episodeSelector.appendChild(option);
   });
 }
 
@@ -43,7 +62,7 @@ function makePageForEpisodes(episode) {
 }
 
 let searchInput = document.getElementById("search");
-// Filtering array of objs based on the search
+// Creating a function to filter array of objs based on the search and showing the result
 function filterAndCreateEpisodeBox(e, allEpisodes) {
   let searchWord = e.target.value;
   let validSearchCount = document.getElementById("validSearchCount");
@@ -72,7 +91,57 @@ function filterAndCreateEpisodeBox(e, allEpisodes) {
     makePageForEpisodes(episode);
   });
 }
-// Adding event listener for input
-searchInput.addEventListener("input", (e) => filterAndCreateEpisodeBox(e, allEpisodes));
+
+// Adding Event listener for Select input
+episodeSelector.addEventListener("input", (e) => {
+  let selectID = e.target.value;
+  let validSearchCount = document.getElementById("validSearchCount");
+  function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
+  }
+  let episodeGrid = document.querySelector("#episodeGrid");
+  if (selectID === "false") {
+    removeAllChildNodes(episodeGrid);
+    allEpisodes.forEach((episode) => {
+      makePageForEpisodes(episode);
+    });
+    validSearchCount.innerText = `Displaying 73/73 episodes`;
+  }
+  if (selectID && selectID !== "false") {
+    let selectedEpisode = allEpisodes.filter((episode) => {
+      if (selectID == episode.id) {
+        return episode;
+      }
+    });
+    removeAllChildNodes(episodeGrid);
+    selectedEpisode.forEach((episode) => {
+      makePageForEpisodes(episode);
+    });
+    validSearchCount.innerText = `Displaying 1/73 episodes`;
+  }
+});
+
+// Adding event listener for reset button
+let svgIcon = document.getElementById("svgIcon");
+svgIcon.addEventListener("click", (e) => {
+  function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
+  }
+  let episodeGrid = document.querySelector("#episodeGrid");
+  removeAllChildNodes(episodeGrid);
+  allEpisodes.forEach((episode) => {
+    makePageForEpisodes(episode);
+  });
+  validSearchCount.innerText = `Displaying 73/73 episodes`;
+});
+
+// Adding event listener for Search input
+searchInput.addEventListener("input", (e) =>
+  filterAndCreateEpisodeBox(e, allEpisodes)
+);
 
 window.onload = setup;

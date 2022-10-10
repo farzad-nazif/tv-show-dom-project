@@ -32,6 +32,30 @@ body {
   padding: 1rem;
   font-size: 1.2rem;
 }
+#selectInput{
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 1.5rem;
+}
+#episodeSelector{
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  padding-left: 1.7rem;
+  font-size: 1.2rem;
+  color: rgb(117, 116, 116);
+}
+#svgIcon{
+  max-height: 50px;
+  width: auto;
+  justify-self: center;
+  align-self: center;
+  margin-left: 1.2rem;
+  background-color: white;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+}
 #episodeGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
