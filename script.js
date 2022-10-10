@@ -1,11 +1,12 @@
-//You can edit ALL of the code here
+const allEpisodes = getAllEpisodes();
+// Setting up
 function setup() {
-  const allEpisodes = getAllEpisodes();
   allEpisodes.forEach((episode) => {
     makePageForEpisodes(episode);
   });
 }
 
+// Creating a box of episode details
 function makePageForEpisodes(episode) {
   let episodeGrid = document.querySelector("#episodeGrid");
   let episodeDiv = document.createElement("div");
@@ -40,5 +41,35 @@ function makePageForEpisodes(episode) {
   episodeDiv.appendChild(episodeParagraph);
   episodeParagraph.innerHTML = episode.summary;
 }
+
+let searchInput = document.getElementById("search");
+// Filtering array of objs based on the search
+function filterAndCreateEpisodeBox(e, allEpisodes) {
+  let searchWord = e.target.value;
+  let validEpisodes = allEpisodes.filter((episode) => {
+    return (
+      episode.name.includes(searchWord) ||
+      episode.summary.includes(searchWord) ||
+      episode.name.toLowerCase().includes(searchWord) ||
+      episode.summary.toLowerCase().includes(searchWord)
+    );
+  });
+  // Declaring a function just to clear the page from all episodes
+  function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
+  }
+  // Defining the parent of episodes
+  let episodeGrid = document.querySelector("#episodeGrid");
+  // Deleting all episodes
+  removeAllChildNodes(episodeGrid);
+  // creating box of episode details
+  validEpisodes.forEach((episode) => {
+    makePageForEpisodes(episode);
+  });
+}
+// Adding event listener for input
+searchInput.addEventListener("input", (e) => filterAndCreateEpisodeBox(e, allEpisodes));
 
 window.onload = setup;

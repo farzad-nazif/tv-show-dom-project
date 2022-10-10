@@ -13,6 +13,13 @@ body {
   justify-self: center;
   align-self: center;
 }
+#search{
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+}
 #episodeGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
