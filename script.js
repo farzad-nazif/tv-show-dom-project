@@ -46,6 +46,7 @@ let searchInput = document.getElementById("search");
 // Filtering array of objs based on the search
 function filterAndCreateEpisodeBox(e, allEpisodes) {
   let searchWord = e.target.value;
+  let validSearchCount = document.getElementById("validSearchCount");
   let validEpisodes = allEpisodes.filter((episode) => {
     return (
       episode.name.includes(searchWord) ||
@@ -54,6 +55,8 @@ function filterAndCreateEpisodeBox(e, allEpisodes) {
       episode.summary.toLowerCase().includes(searchWord)
     );
   });
+  let validEpisodesLength = validEpisodes.length;
+  validSearchCount.innerText = `Displaying ${validEpisodesLength}/73 episodes`;
   // Declaring a function just to clear the page from all episodes
   function removeAllChildNodes(parent) {
     while (parent.firstChild) {
