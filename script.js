@@ -5,9 +5,9 @@ fetch(url)
   .then((data) => {
     data.forEach((episode) => {
       allEpisodes.push(episode);
+      window.onload = setup();
     });
-  })
-  .then((window.onload = setup()));
+  });
 // Setting up
 function setup() {
   let episodeSelector = document.getElementById("episodeSelector");
