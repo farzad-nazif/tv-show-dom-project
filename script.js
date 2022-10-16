@@ -1,4 +1,12 @@
-const allEpisodes = getAllEpisodes();
+const url = "https://api.tvmaze.com/shows/82/episodes";
+const allEpisodes = [];
+fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    data.forEach((episode) => {
+      allEpisodes.push(episode);
+    });
+  });
 // Setting up
 function setup() {
   let episodeSelector = document.getElementById("episodeSelector");
