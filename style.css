@@ -9,7 +9,7 @@ body {
   flex-direction: column;
   background-color: rgb(87, 170, 39);
 }
-#license{
+#license {
   justify-self: center;
   align-self: center;
 }
@@ -32,21 +32,32 @@ body {
   padding: 1rem;
   font-size: 1.2rem;
 }
-#selectInput{
+#selectInput {
   display: flex;
   flex-direction: row;
   justify-self: center;
   align-self: center;
   margin-bottom: 1.5rem;
 }
-#episodeSelector{
+#episodeSelector {
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
   padding-left: 1.7rem;
   font-size: 1.2rem;
   color: rgb(117, 116, 116);
 }
-#svgIcon{
+#showSelect {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  padding-right: 6.7rem;
+  padding-left: 1.6rem;
+  font-size: 1.2rem;
+  color: rgb(117, 116, 116);
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 1.5rem;
+}
+#svgIcon {
   max-height: 50px;
   width: auto;
   justify-self: center;
@@ -55,6 +66,11 @@ body {
   background-color: white;
   border-radius: 1.5rem;
   padding: 0.5rem;
+}
+#svgIcon:hover {
+  cursor: pointer;
+  background-color: rgb(161, 201, 138);
+  padding: 0.4rem;
 }
 #episodeGrid {
   display: grid;
@@ -73,7 +89,6 @@ body {
 }
 .episode:hover {
   background-color: rgb(200, 207, 195);
-  cursor: pointer;
 }
 .episodeImg {
   width: 90%;
@@ -87,4 +102,7 @@ body {
   border-color: black;
   border-style: double;
   background-color: rgb(161, 201, 138);
+}
+.episodeTitle:hover {
+  cursor: pointer;
 }
