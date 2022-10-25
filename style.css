@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 2rem;
+  margin-top: 0;
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
@@ -8,6 +9,13 @@ body {
   display: flex;
   flex-direction: column;
   background-color: rgb(87, 170, 39);
+}
+.navBar {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+  width: 50%;
 }
 #license {
   justify-self: center;
@@ -18,26 +26,36 @@ body {
   flex-direction: row;
   justify-self: center;
   align-self: center;
-  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
   margin-bottom: 1.5rem;
+  min-width: 100%;
+  max-width: 100%;
 }
 #validSearchCount {
   font-size: 1.5rem;
   text-align: center;
   color: white;
+  min-width: 17.5%;
 }
 #search {
   justify-self: center;
   align-self: center;
   padding: 1rem;
   font-size: 1.2rem;
+  min-width: 77.5%;
+  max-width: 77.5%;
 }
 #selectInput {
   display: flex;
   flex-direction: row;
   justify-self: center;
   align-self: center;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1.5rem;
+  width: 100%;
 }
 #episodeSelector {
   padding-top: 1.2rem;
@@ -45,6 +63,8 @@ body {
   padding-left: 1.7rem;
   font-size: 1.2rem;
   color: rgb(117, 116, 116);
+  width: 30rem;
+  min-width: 90%;
 }
 #showSelect {
   padding-top: 1.2rem;
@@ -56,6 +76,7 @@ body {
   justify-self: center;
   align-self: center;
   margin-bottom: 1.5rem;
+  min-width: 100%;
 }
 #svgIcon {
   max-height: 50px;
@@ -82,12 +103,14 @@ body {
   justify-self: center;
   align-self: center;
   margin-bottom: 1.5rem;
+  min-width: 80%;
 }
 #showFilter {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
 }
 #backHomeBtn {
   max-height: 50px;

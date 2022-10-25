@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    
     <h1 id="license" style="color: white">
       The data has (originally) come from
       <a
@@ -20,14 +21,15 @@
         >TVMaze.com</a
       >
     </h1>
+    <div class="navBar">
     <div id="searchBar">
       <input
         autocomplete="off"
         type="search"
         id="search"
-        placeholder="Type to search ..."
+        placeholder="Search in episodes ..."
       />
-      <p id="validSearchCount">Displaying 0/73 episodes</p>
+      <p id="validSearchCount">Displaying 0/0 episodes</p>
     </div>
     <div id="selectInput">
       <div>
@@ -58,7 +60,7 @@
         autocomplete="off"
         type="search"
         id="filterShow"
-        placeholder="Type a show to filter ..."
+        placeholder="Filter show by genre, name and summary ..."
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -94,6 +96,7 @@
         <g></g>
         <g></g>
       </svg>
+    </div>
     </div>
     <section id="episodeGrid">
       <!-- <div class="episode">
